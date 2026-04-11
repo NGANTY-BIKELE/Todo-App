@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './filter-bar.html',
   styleUrl: './filter-bar.css',
 })
-export class FilterBar {}
+export class FilterBarComponent {}
