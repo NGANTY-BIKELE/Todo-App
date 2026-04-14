@@ -1,4 +1,68 @@
 {
-    "tasks":[
-    ]
+  "tasks": [
+    {
+      "title": "tasks Card",
+      "description": "creation du style task Card un peu comme sur jira ",
+      "priority": "Low",
+      "status": "To do",
+      "startDate": "2026-04-23",
+      "endDate": "2026-04-29",
+      "id": "pB2TurbugXk"
+    },
+    {
+      "title": "Formulaire ",
+      "description": "creation du formulaire pour creer une tache ",
+      "priority": "Medium",
+      "status": "Done",
+      "startDate": "2026-04-29",
+      "endDate": "2026-05-01",
+      "id": "bQqMpu2RJuU"
+    },
+    {
+      "title": "details avec id",
+      "description": "faire une vu de details sur chaque tache",
+      "priority": "Medium",
+      "status": "To do",
+      "startDate": "2026-04-13",
+      "endDate": "2026-04-14",
+      "id": "skmasNkYKYI"
+    },
+    {
+      "title": "bare de filter",
+      "description": "pourvoir filtrer les taches dans la barre de recheche ",
+      "priority": "High",
+      "status": "Done",
+      "startDate": "2026-04-13",
+      "endDate": "2026-04-14",
+      "id": "MOA7G4fACxU"
+    },
+    {
+      "title": "tache en ligne",
+      "description": "pourvoir afficher les taches en ligne superpose",
+      "priority": "Low",
+      "status": "In progress",
+      "startDate": "2026-04-13",
+      "endDate": "2026-04-16",
+      "id": "3DX5hFCc6o4"
+    },
+    {
+      "title": "lier new task",
+      "description": "le but est de lier le bouton new task au formulaire pour qu'il s'affiche quand je clique sur le bouton ",
+      "priority": "Medium",
+      "status": "To do",
+      "startDate": "2026-04-13",
+      "endDate": "2026-04-13",
+      "id": "9OaZKfBZxlA"
+    },
+    {
+      "title": "ddjkfhvbdcbhb",
+      "description": "dhjkvbhkdsbhkfbchksbdksb",
+      "priority": "Low",
+      "status": "To do",
+      "startDate": "2026-05-01",
+      "endDate": "2026-04-30",
+      "id": "HXeItmU4ytA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

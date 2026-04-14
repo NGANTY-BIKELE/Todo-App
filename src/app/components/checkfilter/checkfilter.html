@@ -1,0 +1,44 @@
+<div class="absolute top-full mt-2 right-0 w-[300px] bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50">
+  
+  <form class="grid grid-cols-2 gap-4">
+    
+    <div class="border-r border-gray-100 pr-3">
+      <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-3">Priority</p>
+      
+      <label class="flex items-center gap-2.5 text-xs text-gray-700 font-medium mb-2.5 cursor-pointer hover:bg-gray-50 p-1.5 rounded-md transition-colors w-full">
+        <input type="checkbox" (change)="toggleFilter('prioritys', 'High')" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer" />
+        High
+      </label>
+
+      <label class="flex items-center gap-2.5 text-xs text-gray-700 font-medium mb-2.5 cursor-pointer hover:bg-gray-50 p-1.5 rounded-md transition-colors w-full">
+        <input type="checkbox" (change)="toggleFilter('prioritys', 'Medium')" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer" />
+        Medium
+      </label>
+
+      <label class="flex items-center gap-2.5 text-xs text-gray-700 font-medium cursor-pointer hover:bg-gray-50 p-1.5 rounded-md transition-colors w-full">
+        <input type="checkbox" (change)="toggleFilter('prioritys', 'Low')" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer" />
+        Low
+      </label>
+    </div>
+
+    <div class="pl-1">
+      <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-3">Status</p>
+
+      <label class="flex items-center gap-2.5 text-xs text-gray-700 font-medium mb-2.5 cursor-pointer hover:bg-gray-50 p-1.5 rounded-md transition-colors w-full">
+        <input type="checkbox" (change)="toggleFilter('statusFilters', 'To do')" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer" />
+        To do
+      </label>
+
+      <label class="flex items-center gap-2.5 text-xs text-gray-700 font-medium mb-2.5 cursor-pointer hover:bg-gray-50 p-1.5 rounded-md transition-colors w-full">
+        <input type="checkbox" (change)="toggleFilter('statusFilters', 'In progress')" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer" />
+       In progress
+      </label>
+
+      <label class="flex items-center gap-2.5 text-xs text-gray-700 font-medium cursor-pointer hover:bg-gray-50 p-1.5 rounded-md transition-colors w-full">
+        <input type="checkbox" (change)="toggleFilter('statusFilters', 'Done')" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer" />
+        Done
+      </label>
+    </div>
+
+  </form>
+</div>

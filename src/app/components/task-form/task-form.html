@@ -1,68 +1,91 @@
 <div class="max-w-xl mx-auto py-8">
-  <div class="border border-slate-200 rounded-2xl p-6 bg-white">
+  <div class="relative border border-slate-200 rounded-2xl p-6 bg-white">
     <h2 class="text-xl font-medium text-slate-800 mb-1">New task</h2>
     <p class="text-sm text-slate-400 mb-6">Fill in the details to organize your day.</p>
+    
+    <button class="absolute top-3 right-3 text-slate-600 hover:text-slate-800 cursor-pointer hover:bg-slate-200 p-1 rounded transition-colors">
+        <svg lucideX [size]="16"></svg>
+    </button>
 
-    <form class="space-y-5">
-      <!-- Title -->
+    <form class="space-y-5" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div>
-        <label class="block text-xs text-slate-500 mb-1.5">Title</label>
-        <input type="text" placeholder="e.g. Design dashboard"
+        <label for="title" class="block text-xs text-slate-900 mb-1.5">Title</label>
+        <input id="title" type="text" formControlName="title" placeholder="e.g. Design dashboard"
           class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors" />
+          @let title = form.get('title');
+          @if(title?.invalid && title?.touched){
+            @if(title?.errors?.['required']){ <p class="text-red-500 text-xs mt-1">Title is required</p> }
+            @if(title?.errors?.['minlength']){ <p class="text-amber-600 text-xs mt-1">Title must be at least 5 characters</p> }
+          }
       </div>
 
-      <!-- Description -->
       <div>
-        <label class="block text-xs text-slate-500 mb-1.5">Description</label>
-        <textarea rows="3" placeholder="What needs to be done?"
+        <label for="description" class="block text-xs text-slate-900 mb-1.5">Description</label>
+        <textarea id="description" rows="3" formControlName="description" placeholder="What needs to be done?"
           class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors resize-none leading-relaxed"></textarea>
+          @let description = form.get('description');
+          @if(description?.invalid && description?.touched){
+            @if(description?.errors?.['required']){ <p class="text-red-500 text-xs mt-1">Description is required</p> }
+            @if(description?.errors?.['minlength']){ <p class="text-amber-600 text-xs mt-1">Description must be at least 20 characters</p> }
+          }
       </div>
 
-      <!-- Priority & Status -->
       <div class="grid grid-cols-2 gap-3">
         <div>
-          <label class="block text-xs text-slate-500 mb-1.5">Priority</label>
-          <select class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors cursor-pointer">
-            <option>High</option>
-            <option>Medium</option>
-            <option>Low</option>
+          <label class="block text-xs text-slate-900 mb-1.5">Priority</label>
+          <select formControlName="priority" class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors cursor-pointer">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
           </select>
+          @let priority = form.get('priority');
+          @if(priority?.invalid && priority?.touched){
+            <p class="text-red-500 text-xs mt-1">Priority is required</p>
+          }
         </div>
         <div>
-          <label class="block text-xs text-slate-500 mb-1.5">Status</label>
-          <select class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors cursor-pointer">
-            <option>To do</option>
-            <option>In progress</option>
-            <option>Done</option>
+          <label class="block text-xs text-slate-900 mb-1.5">Status</label>
+          <select formControlName="status" class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors cursor-pointer">
+            <option  value="To do">To do</option>
+            <option value="In progress">In progress</option>
+            <option value="Done">Done</option>
           </select>
+          @let status = form.get('status');
+          @if(status?.invalid && status?.touched){
+            <p class="text-red-500 text-xs mt-1">Status is required</p>
+          }
         </div>
       </div>
 
       <!-- Dates -->
       <div class="grid grid-cols-2 gap-3">
         <div>
-          <label class="block text-xs text-slate-500 mb-1.5">Start date</label>
-          <input type="date"
+          <label class="block text-xs text-slate-900 mb-1.5">Start date</label>
+          <input type="date" formControlName="startDate"
             class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors" />
+            @let startDate = form.get('startDate');
+            @if(startDate?.invalid && startDate?.touched){
+              <p class="text-red-500 text-sm">Start date is required</p>
+            }
         </div>
         <div>
-          <label class="block text-xs text-slate-500 mb-1.5">End date</label>
-          <input type="date"
+          <label class="block text-xs text-slate-900 mb-1.5">End date</label>
+          <input type="date" formControlName="endDate"
             class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors" />
+            @let endDate = form.get('endDate');
+            @if(endDate?.invalid && endDate?.touched){
+              <p class="text-red-500 text-sm">End date is required</p>
+            }
         </div>
       </div>
 
       <!-- Actions -->
       <div class="flex justify-end gap-2 pt-2">
-        <button type="button"
-          class="px-4 py-2 text-sm text-slate-600 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors">
-          Cancel
-        </button>
-        <button type="submit"
-          class="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
-          Create task
-        </button>
+        <app-button label="Cancel" variant="secondary" (btnClick)="onClearForm()">
+        </app-button>
+        <app-button label="Create task"  variant="primary" (btnClick)="onSubmit()" [disabled]="form.invalid">
+        </app-button>
       </div>
-    </form>
+    </form> 
   </div>
-</div>
+</div> 

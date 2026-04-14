@@ -1,1 +1,37 @@
-<p>task-card works!</p>
+<div [routerLink]="['/tasks-details', task.id]" class="task-card group bg-white rounded-md border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer overflow-hidden">
+
+  <div class="h-1 w-full" [ngStyle]="priorityStripeStyle"></div>
+
+  <div class="p-3 flex flex-col gap-2.5">
+
+    <p class="text-sm font-medium text-gray-800 leading-snug">{{ task.title }}</p>
+
+    @if (task.description) {
+      <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">{{ task.description }}</p>
+    }
+
+    <div class="flex items-center justify-between mt-1">
+
+      <span class="text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider"
+        [ngStyle]="priorityStyle">
+        {{ task.priority }}
+      </span>
+
+      <div class="flex items-center gap-2">
+        <span class="text-[11px] text-gray-400 font-mono">#{{ task.id }}</span>
+        <button
+          class="text-gray-500 hover:text-blue-500 transition-colors"
+          title="Edit">
+          <svg lucideSquarePen [size]="16"></svg>
+        </button>
+        <button
+          (click)="onDeleteClick()"
+          class="text-gray-500 hover:text-red-500 transition-colors cursor-pointer"
+          title="Delete">
+          <svg lucideTrash [size]="16"></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
