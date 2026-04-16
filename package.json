@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:TodoApp": "node dist/TodoApp/server/server.mjs",
-    "server": "json-server --watch server/db.json --port 3000"
+    "server": "json-server --watch server/db.json --port 8080"
   },
   "private": true,
   "packageManager": "npm@11.6.2",

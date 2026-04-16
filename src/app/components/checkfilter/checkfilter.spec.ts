@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Checkfilter } from './checkfilter';
+import { CheckfilterComponent } from './checkfilter';
 
 describe('Checkfilter', () => {
-  let component: Checkfilter;
-  let fixture: ComponentFixture<Checkfilter>;
+  let component: CheckfilterComponent;
+  let fixture: ComponentFixture<CheckfilterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Checkfilter],
+      imports: [CheckfilterComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Checkfilter);
+    fixture = TestBed.createComponent(CheckfilterComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

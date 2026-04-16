@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TaskService } from '../../services/task';
 import { Task } from '../../models/task.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../button/button';
 import { LucideX } from '@lucide/angular';
+import { UiService } from '../../services/ui.service';
 @Component({
   selector: 'app-task-form',
   imports: [ReactiveFormsModule, ButtonComponent, LucideX],
@@ -15,6 +16,7 @@ export class TaskFormComponent implements OnInit {
 
   tasks$! : Observable<Task[]>
   form!:FormGroup
+  uiService = inject(UiService)
 
   constructor(private tasks:TaskService, private fb: FormBuilder){}
 
@@ -51,11 +53,16 @@ export class TaskFormComponent implements OnInit {
       next:(() => {
         alert(`tache creee avec succes`)
         this.onClearForm();
+        this.uiService.closeTaskForm();
       }),
       error:((error) => {
         console.error(error.message)
       })
     })
+  }
+
+  onCancel() {
+    this.uiService.closeTaskForm();
   }
 
   onClearForm(){

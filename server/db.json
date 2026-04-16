@@ -1,15 +1,6 @@
 {
   "tasks": [
     {
-      "title": "tasks Card",
-      "description": "creation du style task Card un peu comme sur jira ",
-      "priority": "Low",
-      "status": "To do",
-      "startDate": "2026-04-23",
-      "endDate": "2026-04-29",
-      "id": "pB2TurbugXk"
-    },
-    {
       "title": "Formulaire ",
       "description": "creation du formulaire pour creer une tache ",
       "priority": "Medium",
@@ -21,7 +12,7 @@
     {
       "title": "details avec id",
       "description": "faire une vu de details sur chaque tache",
-      "priority": "Medium",
+      "priority": "Low",
       "status": "To do",
       "startDate": "2026-04-13",
       "endDate": "2026-04-14",
@@ -40,7 +31,7 @@
       "title": "tache en ligne",
       "description": "pourvoir afficher les taches en ligne superpose",
       "priority": "Low",
-      "status": "In progress",
+      "status": "Done",
       "startDate": "2026-04-13",
       "endDate": "2026-04-16",
       "id": "3DX5hFCc6o4"
@@ -48,20 +39,29 @@
     {
       "title": "lier new task",
       "description": "le but est de lier le bouton new task au formulaire pour qu'il s'affiche quand je clique sur le bouton ",
-      "priority": "Medium",
+      "priority": "Low",
       "status": "To do",
       "startDate": "2026-04-13",
       "endDate": "2026-04-13",
       "id": "9OaZKfBZxlA"
     },
     {
-      "title": "ddjkfhvbdcbhb",
-      "description": "dhjkvbhkdsbhkfbchksbdksb",
-      "priority": "Low",
+      "title": "ajouter les taches dans completed",
+      "description": "le but est de mettre les taches ayant le statut done dans cette page ",
+      "priority": "Medium",
       "status": "To do",
-      "startDate": "2026-05-01",
-      "endDate": "2026-04-30",
-      "id": "HXeItmU4ytA"
+      "startDate": "2026-04-16",
+      "endDate": "2026-04-16",
+      "id": "2UvqvSB4LnY"
+    },
+    {
+      "title": "architecture avance de angular",
+      "description": "Créer des Feature Modules dédiés (AuthModule, DashboardModule)\nUtiliser des barrel files (index.ts) pour les exports\nComprendre Shared Module et Core Module\nAppliquer les bonnes pratiques du guide de style Angular\nAnalyser les imports circulaires potentiels",
+      "priority": "Low",
+      "status": "In Progress",
+      "startDate": "2026-04-15",
+      "endDate": "2026-04-16",
+      "id": "ZIe3J4_rO6g"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

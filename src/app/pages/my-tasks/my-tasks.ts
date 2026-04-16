@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Task } from '../../models/task.model';
@@ -8,8 +8,10 @@ import { TaskCardComponent } from '../../components/task-card/task-card';
 import { FilterBarComponent } from '../../components/filter-bar/filter-bar';
 import { ButtonComponent } from '../../components/button/button';
 import { CheckfilterComponent } from '../../components/checkfilter/checkfilter';
+import { TaskFormComponent } from '../../components/task-form/task-form';
 import { Filter } from '../../models/task.model';
 import { LucideFunnel, LucidePlus, LucideList, LucideLayoutGrid } from '@lucide/angular';
+import { UiService } from '../../services/ui.service';
 
 @Component({
   selector: 'app-my-tasks',
@@ -22,7 +24,8 @@ import { LucideFunnel, LucidePlus, LucideList, LucideLayoutGrid } from '@lucide/
     LucideList, 
     LucideLayoutGrid,
     FilterBarComponent,
-    CheckfilterComponent
+    CheckfilterComponent,
+    TaskFormComponent
   ],
   templateUrl:'./my-tasks.html',
   styleUrl: './my-tasks.css',
@@ -36,6 +39,7 @@ export class MyTasksComponent implements OnInit {
   isFilterVisible =false
   searchWord = new BehaviorSubject<string>('')
   filterValue = new BehaviorSubject<Filter>({prioritys:[], statusFilters:[]})
+  uiService = inject(UiService)
 
   constructor(private tasks: TaskService) {}
 
@@ -69,7 +73,7 @@ export class MyTasksComponent implements OnInit {
       map(tasks => tasks.filter(t => (t.status || '') === 'To do'))
     );
     this.inProgress$ = filterTasks$.pipe(
-      map(tasks => tasks.filter(t => (t.status || '') === 'In progress'))
+      map(tasks => tasks.filter(t => (t.status || '') === 'In Progress'))
     );
     this.done$ = filterTasks$.pipe(
       map(tasks => tasks.filter(t => (t.status || '') === 'Done'))

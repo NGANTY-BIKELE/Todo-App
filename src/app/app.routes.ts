@@ -13,7 +13,7 @@ export const routes: Routes = [
         {path: 'setting', component: SettingComponent},
         {path: 'dashboard', component: DashboardComponent},
         {path: 'tasks-details/:id', component: TasksDetailsComponent},
-        {path: '', redirectTo: 'my-tasks', pathMatch: 'full'}
+        {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]
     }
 ];

@@ -1,1 +1,47 @@
-<p>dashboard works!</p>
+@if (stats$ | async; as stats) {
+  <div class="grid grid-cols-4 gap-4 mb-6">
+
+    <div class="flex items-center justify-between bg-white border border-gray-200 rounded px-5 py-4 shadow-sm hover:shadow-md transition-all duration-200 cursor-default">
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-500 uppercase tracking-wide">Total Tasks</span>
+        <span class="text-3xl font-bold text-gray-900 leading-none">{{ stats.total }}</span>
+      </div>
+      <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-50">
+        <svg lucideClipboardList class="text-blue-500" [size]="20" [strokeWidth]="1.8"></svg>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between bg-white border border-gray-200 rounded px-5 py-4 shadow-sm hover:shadow-md transition-all duration-200 cursor-default">
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-500 uppercase tracking-wide">In Progress</span>
+        <span class="text-3xl font-bold text-gray-900 leading-none">{{ stats.inProgress }}</span>
+      </div>
+      <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-cyan-50">
+        <svg lucideLoader class="text-cyan-500" [size]="20" [strokeWidth]="1.8"></svg>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between bg-white border border-gray-200 rounded px-5 py-4 shadow-sm hover:shadow-md transition-all duration-200 cursor-default">
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-500 uppercase tracking-wide">Done</span>
+        <span class="text-3xl font-bold text-gray-900 leading-none">{{ stats.Done }}</span>
+      </div>
+      <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-green-50">
+        <svg lucideCheckCircle class="text-green-500" [size]="20" [strokeWidth]="1.8"></svg>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between bg-white border border-gray-200 rounded px-5 py-4 shadow-sm hover:shadow-md transition-all duration-200 cursor-default">
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-500 uppercase tracking-wide">High Priority</span>
+        <span class="text-3xl font-bold text-gray-900 leading-none">{{ stats.highPriority }}</span>
+      </div>
+      <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-orange-50">
+        <svg lucideFlame class="text-orange-500" [size]="20" [strokeWidth]="1.8"></svg>
+      </div>
+    </div>
+
+  </div>
+}
+
+<app-my-tasks></app-my-tasks>

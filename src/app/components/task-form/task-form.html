@@ -1,16 +1,16 @@
-<div class="max-w-xl mx-auto py-8">
-  <div class="relative border border-slate-200 rounded-2xl p-6 bg-white">
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-700/20 backdrop">
+  <div class="relative w-full max-w-xl border border-slate-200 rounded-2xl p-6 bg-white shadow-2xl">
     <h2 class="text-xl font-medium text-slate-800 mb-1">New task</h2>
     <p class="text-sm text-slate-400 mb-6">Fill in the details to organize your day.</p>
-    
-    <button class="absolute top-3 right-3 text-slate-600 hover:text-slate-800 cursor-pointer hover:bg-slate-200 p-1 rounded transition-colors">
+
+    <button (click)="onCancel()" class="absolute top-3 right-3 text-slate-600 hover:text-slate-800 cursor-pointer hover:bg-slate-200 p-1 rounded transition-colors">
         <svg lucideX [size]="16"></svg>
     </button>
 
     <form class="space-y-5" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div>
         <label for="title" class="block text-xs text-slate-900 mb-1.5">Title</label>
-        <input id="title" type="text" formControlName="title" placeholder="e.g. Design dashboard"
+        <input id="title" type="text" formControlName="title" placeholder="Architecture avancee"
           class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors" />
           @let title = form.get('title');
           @if(title?.invalid && title?.touched){
@@ -46,8 +46,8 @@
         <div>
           <label class="block text-xs text-slate-900 mb-1.5">Status</label>
           <select formControlName="status" class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 outline-none focus:border-slate-400 transition-colors cursor-pointer">
-            <option  value="To do">To do</option>
-            <option value="In progress">In progress</option>
+            <option  value="To do">To Do</option>
+            <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
           </select>
           @let status = form.get('status');
@@ -81,7 +81,7 @@
 
       <!-- Actions -->
       <div class="flex justify-end gap-2 pt-2">
-        <app-button label="Cancel" variant="secondary" (btnClick)="onClearForm()">
+        <app-button label="Cancel" variant="secondary" (btnClick)="onCancel()">
         </app-button>
         <app-button label="Create task"  variant="primary" (btnClick)="onSubmit()" [disabled]="form.invalid">
         </app-button>

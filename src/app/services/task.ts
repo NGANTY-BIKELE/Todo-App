@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { Task } from '../models/task.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
+import { TaskUpdate } from '../models/task.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
   
-  private url = "http://localhost:3000/tasks"
+  private url = "http://localhost:8080/tasks"
   private tasksSubject = new BehaviorSubject<Task[]>([]);
   public tasks$ = this.tasksSubject.asObservable()
 
@@ -59,4 +59,17 @@ export class TaskService {
     );
   }
 
+  updateTask(id:string, updates:TaskUpdate): Observable<Task>{
+    return this.http.patch<Task>(`${this.url}/${id}`, updates).pipe(
+      tap((updatedTask) => {
+        const currentTasks = this.tasksSubject.value;
+        const mappedTasks = currentTasks.map(task => task.id === id ? { ...task, ...updatedTask } : task);
+        this.tasksSubject.next(mappedTasks);
+      }),
+      catchError((error:HttpErrorResponse) => {
+        console.error(error)
+        return throwError(() => new Error(`Erreur lors de la mise a jour de la tache ${id}`)) 
+      })
+    )
+  }
 }
